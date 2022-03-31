@@ -19,7 +19,7 @@ namespace Pninoiogu_Konvertavimo_Sistema
             {
                 case 1:
                     decimal euruKiekis = IveskiteEuruKieki();
-                    decimal suma = Konverteris(euruKiekis, valiutuKursai: (decimal)valiutuKursai[iKaKonvertuot]);
+                    decimal suma = Konverteris(euruKiekis, valiutuKursai[iKaKonvertuot]);
                    // decimal usdKiekis = valiutuKursai * euruKiekis;
                     //Console.WriteLine($"Jums priklauso: {usdKiekis} {valiutos[0]}");
                     break;
