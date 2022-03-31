@@ -78,12 +78,12 @@ namespace Pninoiogu_Konvertavimo_Sistema
         //{ 
         //    Console.WriteLine($"Jums priklauso: {kiekis * kursas[]} {}");
         //}
-        public static decimal Konverteris(decimal euruKiekis, decimal valiutuKursai, string valiutos)
+        public static decimal Konverteris(decimal euruKiekis, decimal valiutuKursai, string valiutos, decimal iKaKonvertuot)
         {
             euruKiekis = IveskiteEuruKieki();
             decimal suma = euruKiekis * valiutuKursai;
             //decimal priklauso = 
-            return (Console.WriteLine($"Jums priklauso: {suma} {valiutos}")); 
+            return Console.WriteLine($"Jums priklauso: {suma} {valiutos[iKaKonvertuot]}"); 
         }
         public static decimal IveskiteEuruKieki()
         {
