@@ -17,6 +17,8 @@ namespace Pninoiogu_Konvertavimo_Sistema
                 switch (iKaKonvertuot)
                 {
                     case 0:
+                        //int p = int.Parse(iKaKonvertuot);
+                        //Belekas(iKaKonvertuot, valiutosSimbolis[p], valiutuKursai[p]);
                         string simbolis0 = valiutosSimbolis[0];
                         decimal euruKiekis = IveskiteEuruKieki();
                         decimal suma = Konverteris(euruKiekis, valiutuKursai[0], valiutosSimbolis[0]);
@@ -47,6 +49,15 @@ namespace Pninoiogu_Konvertavimo_Sistema
             }
         }
         #region METODAI        
+        //public static decimal Belekas(decimal p, string valiutosSimbolis, decimal valiutuKursai)
+        //{
+        //    p = IKaKonvertuoti();
+        //    string simbolis = valiutosSimbolis;
+        //    decimal euruKiekis = IveskiteEuruKieki();
+        //    decimal suma = Konverteris(euruKiekis, valiutuKursai, valiutosSimbolis);
+        //    AnyKeyToContinue();
+        //    return suma;
+        //}
         public static void AnyKeyToContinue()
         {
             Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");            
