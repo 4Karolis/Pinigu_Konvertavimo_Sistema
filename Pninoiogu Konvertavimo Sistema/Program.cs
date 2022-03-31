@@ -20,22 +20,18 @@ namespace Pninoiogu_Konvertavimo_Sistema
                         string simbolis0 = valiutosSimbolis[0];
                         decimal euruKiekis = IveskiteEuruKieki();
                         decimal suma = Konverteris(euruKiekis, valiutuKursai[0], valiutosSimbolis[0]);
-                        //Console.WriteLine($"Jums priklauso: {suma} {simbolis0}");
                         AnyKeyToContinue();
-
                         break;
                     case 1:
                         string simbolis1 = valiutosSimbolis[1];
                         decimal euruKiekis1 = IveskiteEuruKieki();
                         decimal suma1 = Konverteris(euruKiekis1, valiutuKursai[1], valiutosSimbolis[1]);
-                        //Console.WriteLine($"Jums priklauso: {suma1} {simbolis1}");
                         AnyKeyToContinue();
                         break;
                     case 2:
                         string simbolis2 = valiutosSimbolis[2];
                         decimal euruKiekis2 = IveskiteEuruKieki();
                         decimal suma2 = Konverteris(euruKiekis2, valiutuKursai[2], valiutosSimbolis[2]);
-                        //Console.WriteLine($"Jums priklauso: {suma2} {simbolis2}"); ;
                         AnyKeyToContinue();
                         break;
                     case 3:
@@ -44,31 +40,17 @@ namespace Pninoiogu_Konvertavimo_Sistema
                         Console.WriteLine("Aciu, kad naudojates musu paslaugomis");
                         break;
                     default:
-                        Console.WriteLine("Blogai ivestas pasirinkimas!");
+                        Console.Clear();
+                        Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
                         break;
                 }
             }
-
         }
-        #region METODAI
-        //public static decimal TryAgain()
-        //{
-        //    Console.WriteLine("           I ka noretumete komnvertuoti?");
-        //    Console.WriteLine("\n[0] USD | [1] PLN | [2] BYR | [3] ISEITI is programos");
-        //    return Console.Clear();
-        //}
+        #region METODAI        
         public static void AnyKeyToContinue()
         {
-            Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");
-            //int.TryParse(Console.ReadLine(), out int exit);
-            if (!int.TryParse(Console.ReadLine(), out int exit))
-            {
-                Console.Clear();
-            }
-            else
-            {
-                Console.Clear(); 
-            }
+            Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");            
+            if (!int.TryParse(Console.ReadLine(), out int exit)); Console.Clear();
         }
         public static decimal Konverteris(decimal euruKiekis, decimal valiutuKursai, string valiutosSimbolis)
         {            
@@ -101,17 +83,13 @@ namespace Pninoiogu_Konvertavimo_Sistema
             if (decimal.TryParse(Console.ReadLine(), out decimal iKaKonvertuot))
             {
                 return iKaKonvertuot;
-
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("Blogai ivestas pasirinkimas!");
-                return IKaKonvertuoti(); Console.WriteLine("bad input. Try again:");
-                
-            }
-            //decimal input = decimal.TryParse(Console.ReadLine(), out decimal iKaKonvertuoti);
-            
+                Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
+                return IKaKonvertuoti();                
+            }            
         }
         #endregion
     }
