@@ -55,8 +55,25 @@ namespace Pninoiogu_Konvertavimo_Sistema
             string simbolis = valiutosSimbolis;
             decimal euruKiekis = IveskiteEuruKieki();
             decimal suma = Konverteris(euruKiekis, valiutuKursai, valiutosSimbolis);
-            AnyKeyToContinue();
+            QToQuit();
             return suma;
+        }
+        public static void QToQuit()
+        {
+            Console.WriteLine("\n[Q] - ISEITI | TESTI - spauskite bet kuri kita mygtuka");
+            string quit = Console.ReadLine();
+            switch (quit)
+            {
+                case "q":
+                    Dasviduli();
+                    break;
+                case "Q":
+                    Dasviduli();
+                    break;              
+                default:
+                    Console.Clear();
+                    break;
+            }
         }
         public static void AnyKeyToContinue()
         {
@@ -98,7 +115,7 @@ namespace Pninoiogu_Konvertavimo_Sistema
             while (true)
             {                
                 decimal.TryParse(Console.ReadLine(), out decimal inputas);
-                bool gerasInputas = inputas == 1 || inputas == 2 || inputas == 3;
+                bool gerasInputas = inputas == 0 ||inputas == 1 || inputas == 2 || inputas == 3;
                 if (gerasInputas)
                 {
                     iKaKonvertuot = inputas;
@@ -106,7 +123,7 @@ namespace Pninoiogu_Konvertavimo_Sistema
                 }                
                 else
                 {
-                    Console.WriteLine("Bad input");
+                    Console.WriteLine("Neteisingai ivestas pasirinkimas!");
                 }                
             }
             return iKaKonvertuot;
