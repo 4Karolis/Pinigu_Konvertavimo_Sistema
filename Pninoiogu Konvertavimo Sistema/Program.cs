@@ -17,16 +17,16 @@ namespace Pninoiogu_Konvertavimo_Sistema
                 decimal iKaKonvertuot = IKaKonvertuoti();
                 switch (iKaKonvertuot)
                 {
-                    case 0:
+                    case 1:
                         Keisai(iKaKonvertuot, valiutuKursai[0], valiutosSimbolis[0]);
                         break;
-                    case 1:
+                    case 2:
                         Keisai(iKaKonvertuot, valiutuKursai[1], valiutosSimbolis[1]);
                         break;
-                    case 2:
+                    case 3:
                         Keisai(iKaKonvertuot, valiutuKursai[2], valiutosSimbolis[2]);
                         break;
-                    case 3:                        
+                    case 4:                        
                         Dasviduli();
                         break;                    
                 }
@@ -115,7 +115,7 @@ namespace Pninoiogu_Konvertavimo_Sistema
             while (true)
             {                
                 decimal.TryParse(Console.ReadLine(), out decimal inputas);
-                bool gerasInputas = inputas == 0 ||inputas == 1 || inputas == 2 || inputas == 3;
+                bool gerasInputas = inputas == 1 ||inputas == 2 || inputas == 3 || inputas == 4;
                 if (gerasInputas)
                 {
                     iKaKonvertuot = inputas;
@@ -134,7 +134,7 @@ namespace Pninoiogu_Konvertavimo_Sistema
             Console.WriteLine("------------ PROGRAMA KONVERTUOJA EURUS -------------");
             Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine("           I ka noretumete komnvertuoti?");
-            Console.WriteLine("\n[0] USD | [1] PLN | [2] BYR | [3] ISEITI is programos");
+            Console.WriteLine("\n[1] USD | [2] PLN | [3] BYR | [4] ISEITI is programos");
         }
         #endregion
     }
