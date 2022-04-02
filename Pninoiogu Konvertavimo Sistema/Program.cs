@@ -34,7 +34,8 @@ namespace Pninoiogu_Konvertavimo_Sistema
         }
         #endregion
 
-        #region METODAI        
+        #region METODAI             
+        
         public static bool Iseiti(bool iseiti)
         {
             iseiti = false;
