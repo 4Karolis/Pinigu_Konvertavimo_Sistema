@@ -17,24 +17,25 @@ namespace Pninoiogu_Konvertavimo_Sistema
                 switch (iKaKonvertuot)
                 {
                     case 0:
-                        //int p = int.Parse(iKaKonvertuot);
-                        //Belekas(iKaKonvertuot, valiutosSimbolis[p], valiutuKursai[p]);
-                        string simbolis0 = valiutosSimbolis[0];
-                        decimal euruKiekis = IveskiteEuruKieki();
-                        decimal suma = Konverteris(euruKiekis, valiutuKursai[0], valiutosSimbolis[0]);
-                        AnyKeyToContinue();
+                        //string simbolis0 = valiutosSimbolis[0];
+                        //decimal euruKiekis = IveskiteEuruKieki();
+                        //decimal suma = Konverteris(euruKiekis, valiutuKursai[0], valiutosSimbolis[0]);
+                        //AnyKeyToContinue();
+                        Keisai(iKaKonvertuot, valiutuKursai[0], valiutosSimbolis[0]);
                         break;
                     case 1:
-                        string simbolis1 = valiutosSimbolis[1];
-                        decimal euruKiekis1 = IveskiteEuruKieki();
-                        decimal suma1 = Konverteris(euruKiekis1, valiutuKursai[1], valiutosSimbolis[1]);
-                        AnyKeyToContinue();
+                        //string simbolis1 = valiutosSimbolis[1];
+                        //decimal euruKiekis1 = IveskiteEuruKieki();
+                        //decimal suma1 = Konverteris(euruKiekis1, valiutuKursai[1], valiutosSimbolis[1]);
+                        //AnyKeyToContinue();
+                        Keisai(iKaKonvertuot, valiutuKursai[1], valiutosSimbolis[1]);
                         break;
                     case 2:
-                        string simbolis2 = valiutosSimbolis[2];
-                        decimal euruKiekis2 = IveskiteEuruKieki();
-                        decimal suma2 = Konverteris(euruKiekis2, valiutuKursai[2], valiutosSimbolis[2]);
-                        AnyKeyToContinue();
+                        //string simbolis2 = valiutosSimbolis[2];
+                        //decimal euruKiekis2 = IveskiteEuruKieki();
+                        //decimal suma2 = Konverteris(euruKiekis2, valiutuKursai[2], valiutosSimbolis[2]);
+                        //AnyKeyToContinue();
+                        Keisai(iKaKonvertuot, valiutuKursai[2], valiutosSimbolis[2]);
                         break;
                     case 3:
                         iseiti = false;
@@ -49,15 +50,16 @@ namespace Pninoiogu_Konvertavimo_Sistema
             }
         }
         #region METODAI        
-        //public static decimal Belekas(decimal p, string valiutosSimbolis, decimal valiutuKursai)
-        //{
-        //    p = IKaKonvertuoti();
-        //    string simbolis = valiutosSimbolis;
-        //    decimal euruKiekis = IveskiteEuruKieki();
-        //    decimal suma = Konverteris(euruKiekis, valiutuKursai, valiutosSimbolis);
-        //    AnyKeyToContinue();
-        //    return suma;
-        //}
+        public static decimal Keisai(decimal iKaonvertuot, decimal valiutuKursai, string valiutosSimbolis)
+        {
+            //int p = int.Parse(Console.ReadLine());
+            string simbolis0 = valiutosSimbolis;
+            decimal euruKiekis = IveskiteEuruKieki();
+            decimal suma = Konverteris(euruKiekis, valiutuKursai, valiutosSimbolis);
+            AnyKeyToContinue();
+            return suma;
+        }
+
         public static void AnyKeyToContinue()
         {
             Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");            
