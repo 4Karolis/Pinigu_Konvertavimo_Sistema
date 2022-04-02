@@ -4,14 +4,14 @@ namespace Pninoiogu_Konvertavimo_Sistema
 {
     class Program
     {
+        #region PROGRAMA
         static void Main(string[] args)
         {
             bool iseiti = true;
-            while (iseiti)//pabandyt su try.parse
+            while (iseiti)
             {
-                string[] valiutosSimbolis = { "USD", "PLN", "BYR" };
-                //1 EUR = 1,1126 USD, 1 EUR = 4,6679 PLN, 1 EUR = 22288,8906 BYR pagal 22.03.30 duomenis
-                decimal[] valiutuKursai = { 1.1126m, 4.6679m, 22288.8906m };
+                string[] valiutosSimbolis = { "USD", "PLN", "BYR" };          // 1 EUR = 1,1126 USD, 1 EUR = 4,6679 PLN, 
+                decimal[] valiutuKursai = { 1.1126m, 4.6679m, 22288.8906m };  // 1 EUR = 22288,8906 BYR pagal 22.03.30 duomenis
 
                 Meniu();
                 decimal iKaKonvertuot = IKaKonvertuoti();
@@ -26,59 +26,61 @@ namespace Pninoiogu_Konvertavimo_Sistema
                     case 2:
                         Keisai(iKaKonvertuot, valiutuKursai[2], valiutosSimbolis[2]);
                         break;
-                    case 3:
-                        iseiti = false;
-                        Console.Clear();
-                        Console.WriteLine("Aciu, kad naudojates musu paslaugomis");
-                        break;
-                    //case 4:
-                    //    CloseApplication();
-                    //    break;
-                    //default:
-                    //    Console.Clear();
-                    //    Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
-                    //    break;
+                    case 3:                        
+                        Dasviduli();
+                        break;                    
                 }
             }
         }
+        #endregion
+
         #region METODAI        
-        public static void Iseiti(bool iseiti)
+        public static bool Iseiti(bool iseiti)
         {
             iseiti = false;
             Console.Clear();
             Console.WriteLine("Aciu, kad naudojates musu paslaugomis. Iki kito karto!");
+            return iseiti;
         }
-        private static void CloseApplication()
+        private static void Dasviduli()
         {
+            Console.Clear();
             Console.WriteLine("Aciu, kad naudojates musu paslaugomis. iki kito karto!");
             Environment.Exit(0);
         }
-        public static decimal Keisai(decimal iKaonvertuot, decimal valiutuKursai, string valiutosSimbolis)
+        public static decimal Keisai(decimal iKaKonvertuot, decimal valiutuKursai, string valiutosSimbolis)
         {
-            //int p = int.Parse(Console.ReadLine());
-            string simbolis0 = valiutosSimbolis;
+            Console.Clear();
+            string simbolis = valiutosSimbolis;
             decimal euruKiekis = IveskiteEuruKieki();
             decimal suma = Konverteris(euruKiekis, valiutuKursai, valiutosSimbolis);
             AnyKeyToContinue();
             return suma;
         }
-
         public static void AnyKeyToContinue()
         {
-            Console.WriteLine("TESTI - Spauskite bet kuti mygtuka");
+            Console.WriteLine("\n        [TESTI] - Spauskite bet kuti mygtuka");
             if (!int.TryParse(Console.ReadLine(), out int exit)) ; Console.Clear();
         }
         public static decimal Konverteris(decimal euruKiekis, decimal valiutuKursai, string valiutosSimbolis)
         {
+            Console.Clear();
             string y = valiutosSimbolis;
             decimal suma = euruKiekis * valiutuKursai;
-            Console.WriteLine($"Jums priklauso: {suma} {y}");
-            //AnyKeyToContinue();
+            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("-------------- KONVERTAVIMO REZULTATAI --------------");
+            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine($"\n          Jums priklauso: {suma} {y}");
             return suma;
         }
         public static decimal IveskiteEuruKieki()
         {
-            Console.WriteLine("Iveskite euru kieki: ");
+            Console.Clear();
+            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("-------------------- IVEDIMO MENIU ------------------");
+            Console.WriteLine("-----------------------------------------------------");
+            Console.WriteLine("                  Iveskite euru kieki: ");
+
             if (decimal.TryParse(Console.ReadLine(), out decimal euruKiekis))
             {
                 return euruKiekis;
@@ -91,7 +93,7 @@ namespace Pninoiogu_Konvertavimo_Sistema
         }
         public static decimal IKaKonvertuoti()
         {
-            decimal iKaKonvertuot, input;
+            decimal iKaKonvertuot;
             while (true)
             {                
                 decimal.TryParse(Console.ReadLine(), out decimal inputas);
@@ -100,17 +102,10 @@ namespace Pninoiogu_Konvertavimo_Sistema
                 {
                     iKaKonvertuot = inputas;
                     break;
-                }
-                //else if (gerasInputas)
-                //{                    
-                //    iKaKonvertuot = inputas;
-                //    break;
-                //}
+                }                
                 else
                 {
                     Console.WriteLine("Bad input");
-                    //Console.ReadLine();
-
                 }                
             }
             return iKaKonvertuot;
