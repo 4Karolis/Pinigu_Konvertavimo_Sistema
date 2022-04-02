@@ -74,23 +74,42 @@ namespace Pninoiogu_Konvertavimo_Sistema
                 return IveskiteEuruKieki();
             }
         }
-        public static decimal IKaKonvertuoti()
+        public static void Meniu()
         {
             Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine("------------ PROGRAMA KONVERTUOJA EURUS -------------");
             Console.WriteLine("-----------------------------------------------------");
+        }
+        public static decimal IKaKonvertuoti()
+        {
+            decimal pasirinkimas = 0;
+            bool isCorrectNumber = false;
+           
             Console.WriteLine("           I ka noretumete komnvertuoti?");
             Console.WriteLine("\n[0] USD | [1] PLN | [2] BYR | [3] ISEITI is programos");
-            if (decimal.TryParse(Console.ReadLine(), out decimal iKaKonvertuot))
+            decimal bandau = decimal.TryParse(Console.ReadLine(), out decimal bandau);
+            while (!isCorrectNumber)
             {
-                return iKaKonvertuot;
+                if (!isCorrectNumber)
+                {
+                    Console.WriteLine("Bad input");
+                }
+                else
+                {
+                    pasirinkimas = bandau;
+                }
             }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
-                return IKaKonvertuoti();
-            }
+            return bandau;
+            //if (decimal.TryParse(Console.ReadLine(), out decimal iKaKonvertuot))
+            //{
+            //    return iKaKonvertuot;
+            //}
+            //else
+            //{
+            //    Console.Clear();
+            //    Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
+            //    return IKaKonvertuoti();
+            //}
         }
         #endregion
     }
