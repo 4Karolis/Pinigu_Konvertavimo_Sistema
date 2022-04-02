@@ -31,9 +31,9 @@ namespace Pninoiogu_Konvertavimo_Sistema
                         Console.Clear();
                         Console.WriteLine("Aciu, kad naudojates musu paslaugomis");
                         break;
-                    case 4:
-                        CloseApplication();
-                        break;
+                    //case 4:
+                    //    CloseApplication();
+                    //    break;
                     //default:
                     //    Console.Clear();
                     //    Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
@@ -42,10 +42,15 @@ namespace Pninoiogu_Konvertavimo_Sistema
             }
         }
         #region METODAI        
+        public static void Iseiti(bool iseiti)
+        {
+            iseiti = false;
+            Console.Clear();
+            Console.WriteLine("Aciu, kad naudojates musu paslaugomis. Iki kito karto!");
+        }
         private static void CloseApplication()
         {
-            Console.WriteLine("Goodbey, thank you for using our Calculator");
-            Console.WriteLine("Press any key to close application....");
+            Console.WriteLine("Aciu, kad naudojates musu paslaugomis. iki kito karto!");
             Environment.Exit(0);
         }
         public static decimal Keisai(decimal iKaonvertuot, decimal valiutuKursai, string valiutosSimbolis)
@@ -60,7 +65,7 @@ namespace Pninoiogu_Konvertavimo_Sistema
 
         public static void AnyKeyToContinue()
         {
-            Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");
+            Console.WriteLine("TESTI - Spauskite bet kuti mygtuka");
             if (!int.TryParse(Console.ReadLine(), out int exit)) ; Console.Clear();
         }
         public static decimal Konverteris(decimal euruKiekis, decimal valiutuKursai, string valiutosSimbolis)
@@ -90,7 +95,7 @@ namespace Pninoiogu_Konvertavimo_Sistema
             while (true)
             {                
                 decimal.TryParse(Console.ReadLine(), out decimal inputas);
-                bool gerasInputas = inputas == 1 || inputas == 2 || inputas == 3 || inputas == 4;
+                bool gerasInputas = inputas == 1 || inputas == 2 || inputas == 3;
                 if (gerasInputas)
                 {
                     iKaKonvertuot = inputas;
