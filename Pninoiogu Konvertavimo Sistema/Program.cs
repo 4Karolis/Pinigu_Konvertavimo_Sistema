@@ -12,40 +12,41 @@ namespace Pninoiogu_Konvertavimo_Sistema
                 string[] valiutosSimbolis = { "USD", "PLN", "BYR" };
                 //1 EUR = 1,1126 USD, 1 EUR = 4,6679 PLN, 1 EUR = 22288,8906 BYR pagal 22.03.30 duomenis
                 decimal[] valiutuKursai = { 1.1126m, 4.6679m, 22288.8906m };
+                PerformCalculation();
 
-                decimal iKaKonvertuot = IKaKonvertuoti();
-                switch (iKaKonvertuot)
-                {
-                    case 0:
-                        //int p = int.Parse(iKaKonvertuot);
-                        //Belekas(iKaKonvertuot, valiutosSimbolis[p], valiutuKursai[p]);
-                        string simbolis0 = valiutosSimbolis[0];
-                        decimal euruKiekis = IveskiteEuruKieki();
-                        decimal suma = Konverteris(euruKiekis, valiutuKursai[0], valiutosSimbolis[0]);
-                        AnyKeyToContinue();
-                        break;
-                    case 1:
-                        string simbolis1 = valiutosSimbolis[1];
-                        decimal euruKiekis1 = IveskiteEuruKieki();
-                        decimal suma1 = Konverteris(euruKiekis1, valiutuKursai[1], valiutosSimbolis[1]);
-                        AnyKeyToContinue();
-                        break;
-                    case 2:
-                        string simbolis2 = valiutosSimbolis[2];
-                        decimal euruKiekis2 = IveskiteEuruKieki();
-                        decimal suma2 = Konverteris(euruKiekis2, valiutuKursai[2], valiutosSimbolis[2]);
-                        AnyKeyToContinue();
-                        break;
-                    case 3:
-                        iseiti = false;
-                        Console.Clear();
-                        Console.WriteLine("Aciu, kad naudojates musu paslaugomis");
-                        break;
-                    default:
-                        Console.Clear();
-                        Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
-                        break;
-                }
+                //decimal iKaKonvertuot = IKaKonvertuoti();
+                //switch (iKaKonvertuot)
+                //{
+                //    case 0:
+                //        //int p = int.Parse(iKaKonvertuot);
+                //        //Belekas(iKaKonvertuot, valiutosSimbolis[p], valiutuKursai[p]);
+                //        string simbolis0 = valiutosSimbolis[0];
+                //        decimal euruKiekis = IveskiteEuruKieki();
+                //        decimal suma = Konverteris(euruKiekis, valiutuKursai[0], valiutosSimbolis[0]);
+                //        AnyKeyToContinue();
+                //        break;
+                //    case 1:
+                //        string simbolis1 = valiutosSimbolis[1];
+                //        decimal euruKiekis1 = IveskiteEuruKieki();
+                //        decimal suma1 = Konverteris(euruKiekis1, valiutuKursai[1], valiutosSimbolis[1]);
+                //        AnyKeyToContinue();
+                //        break;
+                //    case 2:
+                //        string simbolis2 = valiutosSimbolis[2];
+                //        decimal euruKiekis2 = IveskiteEuruKieki();
+                //        decimal suma2 = Konverteris(euruKiekis2, valiutuKursai[2], valiutosSimbolis[2]);
+                //        AnyKeyToContinue();
+                //        break;
+                //    case 3:
+                //        iseiti = false;
+                //        Console.Clear();
+                //        Console.WriteLine("Aciu, kad naudojates musu paslaugomis");
+                //        break;
+                //    default:
+                //        Console.Clear();
+                //        Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
+                //        break;
+                //}
             }
         }
         #region METODAI        
