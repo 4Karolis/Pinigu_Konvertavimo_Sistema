@@ -16,25 +16,14 @@ namespace Pninoiogu_Konvertavimo_Sistema
                 decimal iKaKonvertuot = IKaKonvertuoti();
                 switch (iKaKonvertuot)
                 {
-                    case 0:
-                        //int p = int.Parse(iKaKonvertuot);
-                        //Belekas(iKaKonvertuot, valiutosSimbolis[p], valiutuKursai[p]);
-                        string simbolis0 = valiutosSimbolis[0];
-                        decimal euruKiekis = IveskiteEuruKieki();
-                        decimal suma = Konverteris(euruKiekis, valiutuKursai[0], valiutosSimbolis[0]);
-                        AnyKeyToContinue();
+                    case 0:                        
+                        Keisai(iKaKonvertuot, valiutuKursai[0], valiutosSimbolis[0]);
                         break;
-                    case 1:
-                        string simbolis1 = valiutosSimbolis[1];
-                        decimal euruKiekis1 = IveskiteEuruKieki();
-                        decimal suma1 = Konverteris(euruKiekis1, valiutuKursai[1], valiutosSimbolis[1]);
-                        AnyKeyToContinue();
+                    case 1:                        
+                        Keisai(iKaKonvertuot, valiutuKursai[1], valiutosSimbolis[1]);
                         break;
-                    case 2:
-                        string simbolis2 = valiutosSimbolis[2];
-                        decimal euruKiekis2 = IveskiteEuruKieki();
-                        decimal suma2 = Konverteris(euruKiekis2, valiutuKursai[2], valiutosSimbolis[2]);
-                        AnyKeyToContinue();
+                    case 2:                       
+                        Keisai(iKaKonvertuot, valiutuKursai[2], valiutosSimbolis[2]);
                         break;
                     case 3:
                         iseiti = false;
@@ -49,27 +38,28 @@ namespace Pninoiogu_Konvertavimo_Sistema
             }
         }
         #region METODAI        
-        //public static decimal Belekas(decimal p, string valiutosSimbolis, decimal valiutuKursai)
-        //{
-        //    p = IKaKonvertuoti();
-        //    string simbolis = valiutosSimbolis;
-        //    decimal euruKiekis = IveskiteEuruKieki();
-        //    decimal suma = Konverteris(euruKiekis, valiutuKursai, valiutosSimbolis);
-        //    AnyKeyToContinue();
-        //    return suma;
-        //}
+        public static decimal Keisai(decimal iKaonvertuot, decimal valiutuKursai, string valiutosSimbolis)
+        {
+            //int p = int.Parse(Console.ReadLine());
+            string simbolis0 = valiutosSimbolis;
+            decimal euruKiekis = IveskiteEuruKieki();
+            decimal suma = Konverteris(euruKiekis, valiutuKursai, valiutosSimbolis);
+            AnyKeyToContinue();
+            return suma;
+        }
+
         public static void AnyKeyToContinue()
         {
-            Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");            
-            if (!int.TryParse(Console.ReadLine(), out int exit)); Console.Clear();
+            Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");
+            if (!int.TryParse(Console.ReadLine(), out int exit)) ; Console.Clear();
         }
         public static decimal Konverteris(decimal euruKiekis, decimal valiutuKursai, string valiutosSimbolis)
-        {            
-            string y = valiutosSimbolis; 
+        {
+            string y = valiutosSimbolis;
             decimal suma = euruKiekis * valiutuKursai;
             Console.WriteLine($"Jums priklauso: {suma} {y}");
             //AnyKeyToContinue();
-            return suma; 
+            return suma;
         }
         public static decimal IveskiteEuruKieki()
         {
@@ -81,11 +71,11 @@ namespace Pninoiogu_Konvertavimo_Sistema
             else
             {
                 Console.WriteLine("Blogai ivestas pasirinkimas!");
-                return IveskiteEuruKieki(); 
+                return IveskiteEuruKieki();
             }
         }
         public static decimal IKaKonvertuoti()
-        {            
+        {
             Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine("------------ PROGRAMA KONVERTUOJA EURUS -------------");
             Console.WriteLine("-----------------------------------------------------");
@@ -99,8 +89,8 @@ namespace Pninoiogu_Konvertavimo_Sistema
             {
                 Console.Clear();
                 Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
-                return IKaKonvertuoti();                
-            }            
+                return IKaKonvertuoti();
+            }
         }
         #endregion
     }
