@@ -58,50 +58,85 @@ namespace Pninoiogu_Konvertavimo_Sistema
         //    AnyKeyToContinue();
         //    return suma;
         //}
-        public static void AnyKeyToContinue()
+        public static decimal PerformCalculation(decimal iKaKonvertuot, string[] valiutosSimbolis, decimal[] valiutuKursai)
         {
-            Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");            
-            if (!int.TryParse(Console.ReadLine(), out int exit)); Console.Clear();
-        }
-        public static decimal Konverteris(decimal euruKiekis, decimal valiutuKursai, string valiutosSimbolis)
-        {            
-            string y = valiutosSimbolis; 
-            decimal suma = euruKiekis * valiutuKursai;
-            Console.WriteLine($"Jums priklauso: {suma} {y}");
-            //AnyKeyToContinue();
-            return suma; 
-        }
-        public static decimal IveskiteEuruKieki()
-        {
-            Console.WriteLine("Iveskite euru kieki: ");
-            if (decimal.TryParse(Console.ReadLine(), out decimal euruKiekis))
+            bool iseiti = false;
+            switch (iKaKonvertuot)
             {
-                return euruKiekis;
+                case 0:
+                    //int p = int.Parse(iKaKonvertuot);
+                    //Belekas(iKaKonvertuot, valiutosSimbolis[p], valiutuKursai[p]);
+                    string simbolis0 = valiutosSimbolis[0];
+                    decimal euruKiekis = IveskiteEuruKieki();
+                    decimal suma = Konverteris(euruKiekis, valiutuKursai[0], valiutosSimbolis[0]);
+                    AnyKeyToContinue();
+                    break;
+                case 1:
+                    string simbolis1 = valiutosSimbolis[1];
+                    decimal euruKiekis1 = IveskiteEuruKieki();
+                    decimal suma1 = Konverteris(euruKiekis1, valiutuKursai[1], valiutosSimbolis[1]);
+                    AnyKeyToContinue();
+                    break;
+                case 2:
+                    string simbolis2 = valiutosSimbolis[2];
+                    decimal euruKiekis2 = IveskiteEuruKieki();
+                    decimal suma2 = Konverteris(euruKiekis2, valiutuKursai[2], valiutosSimbolis[2]);
+                    AnyKeyToContinue();
+                    break;
+                case 3:
+                    iseiti = false;
+                    Console.Clear();
+                    Console.WriteLine("Aciu, kad naudojates musu paslaugomis");
+                    break;
+                default:
+                    Console.Clear();
+                    Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
+                    break;
             }
-            else
+            public static void AnyKeyToContinue()
             {
-                Console.WriteLine("Blogai ivestas pasirinkimas!");
-                return IveskiteEuruKieki(); 
+                Console.WriteLine("TESTI - Spauskite bet kuti kita mygtuka");
+                if (!int.TryParse(Console.ReadLine(), out int exit)) ; Console.Clear();
             }
-        }
-        public static decimal IKaKonvertuoti()
-        {            
-            Console.WriteLine("-----------------------------------------------------");
-            Console.WriteLine("------------ PROGRAMA KONVERTUOJA EURUS -------------");
-            Console.WriteLine("-----------------------------------------------------");
-            Console.WriteLine("           I ka noretumete komnvertuoti?");
-            Console.WriteLine("\n[0] USD | [1] PLN | [2] BYR | [3] ISEITI is programos");
-            if (decimal.TryParse(Console.ReadLine(), out decimal iKaKonvertuot))
+            public static decimal Konverteris(decimal euruKiekis, decimal valiutuKursai, string valiutosSimbolis)
             {
-                return iKaKonvertuot;
+                string y = valiutosSimbolis;
+                decimal suma = euruKiekis * valiutuKursai;
+                Console.WriteLine($"Jums priklauso: {suma} {y}");
+                //AnyKeyToContinue();
+                return suma;
             }
-            else
+            public static decimal IveskiteEuruKieki()
             {
-                Console.Clear();
-                Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
-                return IKaKonvertuoti();                
-            }            
+                Console.WriteLine("Iveskite euru kieki: ");
+                if (decimal.TryParse(Console.ReadLine(), out decimal euruKiekis))
+                {
+                    return euruKiekis;
+                }
+                else
+                {
+                    Console.WriteLine("Blogai ivestas pasirinkimas!");
+                    return IveskiteEuruKieki();
+                }
+            }
+            public static decimal IKaKonvertuoti()
+            {
+                Console.WriteLine("-----------------------------------------------------");
+                Console.WriteLine("------------ PROGRAMA KONVERTUOJA EURUS -------------");
+                Console.WriteLine("-----------------------------------------------------");
+                Console.WriteLine("           I ka noretumete komnvertuoti?");
+                Console.WriteLine("\n[0] USD | [1] PLN | [2] BYR | [3] ISEITI is programos");
+                if (decimal.TryParse(Console.ReadLine(), out decimal iKaKonvertuot))
+                {
+                    return iKaKonvertuot;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Blogai ivestas pasirinkimas! Rinkites dar karta");
+                    return IKaKonvertuoti();
+                }
+            }
+            #endregion
         }
-        #endregion
     }
-}
